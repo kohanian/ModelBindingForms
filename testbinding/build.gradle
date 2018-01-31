@@ -1,47 +1,28 @@
-apply plugin: 'com.android.library'
-
-ext {
-    bintrayRepo = 'DataBinding'
-    bintrayName = 'ModelBindingForms'
-
-    publishedGroupId = 'com.kyleohanian.modelformsbinding'
-    libraryName = 'ModelBindingForms'
-    artifact = 'ModelBindingForms'
-
-    libraryDescription = 'A library for Data Binding'
-
-    siteUrl = 'https://github.com/kohanian/ModelBindingForms'
-    gitUrl = 'https://github.com/kohanian/ModelBindingForms.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'kyleohanian'
-    developerName = 'Kyle Ohanian'
-    developerEmail = 'kyle.ohanian@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.1'
+
+
+
     defaultConfig {
+        applicationId "com.purdue.a407.testbinding"
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-    }
+
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/LICENSE.txt'
@@ -54,6 +35,7 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
+
 }
 
 dependencies {
@@ -72,7 +54,5 @@ dependencies {
             [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1']
     )
     testCompile 'junit:junit:4.12'
+    compile project(path: ':modelbindingforms')
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
